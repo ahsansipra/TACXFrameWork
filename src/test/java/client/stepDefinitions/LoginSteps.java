@@ -19,7 +19,7 @@ public class LoginSteps {
     @When("User enter email Id {string}")
     public void userEnterEmailId(String emailId) throws IOException, InterruptedException {
         LoginPage loginPage = new LoginPage(webDriverManager.getWebDriver());
-        loginPage.clickSignInWithGarmin();
+        loginPage.clickSignIn();
         loginPage.setEmailID(emailId);
     }
 
@@ -30,21 +30,21 @@ public class LoginSteps {
     }
 
     @And("User Clicks on Login Button")
-    public void userClicksOnLoginButton() throws IOException {
+    public void clicksLoginButton() throws IOException {
         LoginPage loginPage = new LoginPage(webDriverManager.getWebDriver());
         loginPage.clickLogin();
     }
 
     @Then("SIGN OUT action is available")
-    public void signOutActionIsAvailable() throws IOException, InterruptedException {
+    public void isSignOutAvailable() throws IOException, InterruptedException {
         HomePage homePage = new HomePage(webDriverManager.getWebDriver());
         homePage.waitSignOutToBeVisible();
     }
 
     @And("User logs in to the system with {string} and {string}")
-    public void userLogsInToTheSystem(String emailId, String password) throws IOException, InterruptedException {
+    public void userLogIn(String emailId, String password) throws IOException, InterruptedException {
         LoginPage loginPage = new LoginPage(webDriverManager.getWebDriver());
-        loginPage.clickSignInWithGarmin();
+        loginPage.clickSignIn();
         loginPage.setEmailID(emailId);
         loginPage.setPassword(password);
         loginPage.clickLogin();

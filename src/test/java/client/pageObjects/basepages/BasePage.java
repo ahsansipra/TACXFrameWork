@@ -38,7 +38,7 @@ public class BasePage {
         webElement.sendKeys(value);
     }
 
-    protected void switchToFrameForLogin(WebElement webElement) {
+    protected void switchToFrame(WebElement webElement) {
         webDriver.switchTo().frame(webElement);
     }
 

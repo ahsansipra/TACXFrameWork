@@ -31,11 +31,11 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(webDriver, this);
     }
 
-    public void clickSignInWithGarmin(){
+    public void clickSignIn(){
         signInOption.click();}
 
     public void setEmailID(String txtEmail) throws InterruptedException {
-        switchToFrameForLogin(loginFrame);
+        switchToFrame(loginFrame);
         waitElementToBeVisible(emailID);
         setText(emailID, txtEmail);
     }
@@ -53,7 +53,7 @@ public class LoginPage extends BasePage {
     }
 
     public void waitCreateAccountToBeVisible() {
-        switchToFrameForLogin(loginFrame);
+        switchToFrame(loginFrame);
         waitElementToBeVisible(createAccountButton);
         waitElementToBeVisible(createAccountButton);
     }

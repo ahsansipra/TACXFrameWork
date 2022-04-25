@@ -27,31 +27,31 @@ public class CreateWorkoutSteps {
     }
 
     @And("User Selects Power workout")
-    public void userSelectPowerWorkout() throws IOException {
+    public void SelectPowerWorkout() throws IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickPowerOption();
     }
 
     @And("User selects distance as target")
-    public void userSelectDistanceAsTarget() throws IOException {
+    public void setDistanceTarget() throws IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickDistanceOption();
     }
 
     @And("User selects continue option")
-    public void userSelectContinue() throws IOException {
+    public void selectContinue() throws IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickContinue();
     }
 
     @And("User sets distance to {int} KM")
-    public void userSetDistance(Integer distanceValue) throws IOException, InterruptedException {
+    public void setDistance(Integer distanceValue) throws IOException, InterruptedException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickDistanceIndicator(distanceValue);
     }
 
     @And("User saves the workout and gives title name")
-    public void userSaveTheWorkoutWithTitleName() throws InterruptedException, IOException {
+    public void saveWorkoutWithTitle() throws InterruptedException, IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickSaveButton();
         createWorkoutPage.setTitle();
@@ -60,7 +60,7 @@ public class CreateWorkoutSteps {
     }
 
     @And("select Workouts menu item")
-    public void userNavigateToWorkoutsMenuItem() throws IOException {
+    public void openWorkoutsMenu() throws IOException {
         HomePage homePage = new HomePage(webDriverManager.getWebDriver());
         homePage.clickWorkout();
     }
@@ -72,7 +72,7 @@ public class CreateWorkoutSteps {
                 workoutsPage.ifTitleFoundOnWorkout(expectedTitle));
     }
     @Then("User Logout from the account")
-    public void userLogoutFromTheAccount() throws IOException {
+    public void userLogout() throws IOException {
         HomePage homePage = new HomePage(webDriverManager.getWebDriver());
         homePage.clickSignOut();
     }

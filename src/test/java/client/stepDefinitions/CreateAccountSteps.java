@@ -19,7 +19,7 @@ public class CreateAccountSteps {
     @When("click on the create account button")
     public void clickCreateAccountButton() throws IOException {
         LoginPage loginPage = new LoginPage(webDriver.getWebDriver());
-        loginPage.clickSignInWithGarmin();
+        loginPage.clickSignIn();
         loginPage.waitCreateAccountToBeVisible();
         loginPage.clickCreateAccount();
     }
