@@ -1,4 +1,4 @@
-package backend.httpRequestsContext;
+package backend.httpRequestsBeans;
 
 import io.restassured.http.Method;
 import io.restassured.response.Response;
@@ -14,13 +14,13 @@ import java.util.HashMap;
 
 @Getter
 @Setter
-public class UpdateEmployeeContext {
+public class UpdateEmployeeDataBean {
 
-    private Logger logger = LoggerFactory.getLogger(UpdateEmployeeContext.class.getName());
+    private Logger logger = LoggerFactory.getLogger(UpdateEmployeeDataBean.class.getName());
     private HttpRestClient httpRestClient;
     HashMap<String, Object> requestBody;
 
-    public UpdateEmployeeContext(HttpRestClient httpRestClient) {
+    public UpdateEmployeeDataBean(HttpRestClient httpRestClient) {
         this.httpRestClient = httpRestClient;
     }
 

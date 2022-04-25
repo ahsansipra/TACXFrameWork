@@ -1,4 +1,4 @@
-package backend.httpRequestsContext;
+package backend.httpRequestsBeans;
 
 
 import io.restassured.http.Method;
@@ -6,12 +6,12 @@ import io.restassured.response.Response;
 import backend.restclient.Endpoint;
 import backend.restclient.HttpRestClient;
 
-public class DeleteEmployeeContext {
+public class DeleteEmployeeDataBean {
 
     private HttpRestClient httpRestClient;
     private Response response;
 
-    public DeleteEmployeeContext(HttpRestClient httpRestClient) {
+    public DeleteEmployeeDataBean(HttpRestClient httpRestClient) {
         this.httpRestClient = httpRestClient;
     }
 

@@ -9,19 +9,19 @@ import client.pageObjects.basepages.BasePage;
 public class LoginPage extends BasePage {
 
     @FindBy(id = "next-button")
-    private WebElement signInWithGarmin;
+    private WebElement signInOption;
 
     @FindBy(id = "username")
-    private WebElement emailId;
+    private WebElement emailID;
 
     @FindBy(id = "password")
     private WebElement password;
 
     @FindBy(id = "login-btn-signin")
-    private WebElement btnLogin;
+    private WebElement loginButton;
 
     @FindBy(id = "lnkCreateAccount")
-    private WebElement btnCreateAccount;
+    private WebElement createAccountButton;
 
     @FindBy(id = "gauth-widget-frame-gauth-widget")
     private WebElement loginFrame;
@@ -31,12 +31,13 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(webDriver, this);
     }
 
-    public void clickSignInWithGarmin(){signInWithGarmin.click();}
+    public void clickSignInWithGarmin(){
+        signInOption.click();}
 
-    public void setEmailId(String txtEmail) throws InterruptedException {
+    public void setEmailID(String txtEmail) throws InterruptedException {
         switchToFrameForLogin(loginFrame);
-        waitElementToBeVisible(emailId);
-        setText(emailId, txtEmail);
+        waitElementToBeVisible(emailID);
+        setText(emailID, txtEmail);
     }
 
     public void setPassword(String txtPassword) {
@@ -44,17 +45,17 @@ public class LoginPage extends BasePage {
     }
 
     public void clickLogin() {
-        btnLogin.click();
+        loginButton.click();
     }
 
     public void clickCreateAccount() {
-        btnCreateAccount.click();
+        createAccountButton.click();
     }
 
     public void waitCreateAccountToBeVisible() {
         switchToFrameForLogin(loginFrame);
-        waitElementToBeVisible(btnCreateAccount);
-        waitElementToBeVisible(btnCreateAccount);
+        waitElementToBeVisible(createAccountButton);
+        waitElementToBeVisible(createAccountButton);
     }
 
 }

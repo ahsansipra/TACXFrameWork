@@ -18,7 +18,7 @@ public class BasePage {
     public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
         this.webDriverWait = new WebDriverWait(this.webDriver, 15, 60);
-        this.actions = new Actions(this.webDriver);
+    //    this.actions = new Actions(this.webDriver);
     }
 
     protected void waitElementToBeVisible(WebElement webElement) {

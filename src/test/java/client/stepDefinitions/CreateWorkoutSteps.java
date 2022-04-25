@@ -26,40 +26,40 @@ public class CreateWorkoutSteps {
         homePage.clickCreateWorkOut();
     }
 
-    @And("User Select Power workout")
+    @And("User Selects Power workout")
     public void userSelectPowerWorkout() throws IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
-        createWorkoutPage.clickPower();
+        createWorkoutPage.clickPowerOption();
     }
 
-    @And("User select distance as target")
+    @And("User selects distance as target")
     public void userSelectDistanceAsTarget() throws IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
-        createWorkoutPage.clickDistance();
+        createWorkoutPage.clickDistanceOption();
     }
 
-    @And("User select continue")
+    @And("User selects continue option")
     public void userSelectContinue() throws IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickContinue();
     }
 
-    @And("User set distance to {int} KM")
+    @And("User sets distance to {int} KM")
     public void userSetDistance(Integer distanceValue) throws IOException, InterruptedException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
         createWorkoutPage.clickDistanceIndicator(distanceValue);
     }
 
-    @And("User save the workout with title name")
+    @And("User saves the workout and gives title name")
     public void userSaveTheWorkoutWithTitleName() throws InterruptedException, IOException {
         CreateWorkoutPage createWorkoutPage = new CreateWorkoutPage(webDriverManager.getWebDriver());
-        createWorkoutPage.clickSaveBtn();
+        createWorkoutPage.clickSaveButton();
         createWorkoutPage.setTitle();
         expectedTitle = createWorkoutPage.getTitle();
         createWorkoutPage.clickSaveTitle();
     }
 
-    @And("User navigate to Workouts menu item")
+    @And("select Workouts menu item")
     public void userNavigateToWorkoutsMenuItem() throws IOException {
         HomePage homePage = new HomePage(webDriverManager.getWebDriver());
         homePage.clickWorkout();

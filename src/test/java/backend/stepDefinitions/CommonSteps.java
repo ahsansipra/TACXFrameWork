@@ -19,7 +19,7 @@ public class CommonSteps {
         httpRestClient.sendHttpRequest(Method.valueOf(method), endpoint);
     }
 
-    @Then("Api response code is {int}")
+    @Then("Validate Api response code is {int}")
     public void validateApiResponseCode(Integer statusCode) throws Throwable {
         Assert.assertEquals("Status code is not equals", statusCode, httpRestClient.getStatusCode());
     }

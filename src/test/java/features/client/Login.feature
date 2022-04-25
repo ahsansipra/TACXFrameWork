@@ -1,6 +1,6 @@
 @login
 
-Feature: Login User
+Feature: Login User Feature
 
   Background:
     Given user is on TACX site
@@ -9,5 +9,5 @@ Feature: Login User
     When User enter email Id "random@email.com"
     And User enter password "Tacx12345"
     And User Clicks on Login Button
-    Then "Dashboard" page is opened
+    Then User is on "Dashboard" page
     And SIGN OUT action is available

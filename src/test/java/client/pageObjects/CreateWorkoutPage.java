@@ -23,11 +23,9 @@ public class CreateWorkoutPage extends BasePage {
     @ByAngularButtonText.FindBy(buttonText = "Continue")
     private WebElement btnContinue;
 
-   // @FindBy(xpath = "//*[@id='duration-group']/div[2]/button[1]")
     @FindBy(className = "increase-indicator-value-control")
     private WebElement increaseDistance;
 
-  //  @FindBy(xpath = "//*[@id='duration-group']/div[2]/button[2]")
     @FindBy(className = "decrease-indicator-value-control")
     private WebElement decreaseDistance;
 
@@ -35,7 +33,7 @@ public class CreateWorkoutPage extends BasePage {
     private WebElement distanceValue;
 
     @FindBy(className = "save-btn")
-    private WebElement btnSave;
+    private WebElement saveOption;
 
     @ByAngularModel.FindBy(model = "vm.fieldValue")
     private WebElement inputTitle;
@@ -49,19 +47,19 @@ public class CreateWorkoutPage extends BasePage {
     @FindBy(id = "tacx-dialog-cancel")
     private WebElement alertCancel;
 
-    private String txtTitle;
+    private String titleText;
 
     public CreateWorkoutPage(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
     }
 
-    public void clickPower() {
+    public void clickPowerOption() {
         waitElementToBeVisible(power);
         power.click();
     }
 
-    public void clickDistance() {
+    public void clickDistanceOption() {
         waitElementToBeVisible(distance);
         distance.click();
     }
@@ -71,18 +69,17 @@ public class CreateWorkoutPage extends BasePage {
         btnContinue.click();
     }
 
-    public void clickSaveBtn() {
-        btnSave.click();
+    public void clickSaveButton() {
+        saveOption.click();
     }
 
     public void setTitle() {
-        txtTitle = Utils.randomStringGenerator(6);
-        System.out.println(txtTitle);
-        inputTitle.sendKeys(txtTitle);
+        titleText = Utils.randomStringGenerator(6);
+        inputTitle.sendKeys(titleText);
     }
 
     public String getTitle() {
-        return txtTitle;
+        return titleText;
     }
 
     public void clickSaveTitle() {

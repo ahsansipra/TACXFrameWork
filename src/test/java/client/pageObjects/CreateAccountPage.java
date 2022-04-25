@@ -36,7 +36,7 @@ public class CreateAccountPage extends BasePage {
     @FindBy(id = "submitBtn")
     private WebElement signUp;
 
-    String emailAddress = createEmailAddress();
+    String randomEmailAddress = createEmailAddress();
 
     public CreateAccountPage(WebDriver webDriver) {
         super(webDriver);
@@ -47,7 +47,7 @@ public class CreateAccountPage extends BasePage {
         switchFrameToCreateAccount();
         waitElementToBeVisible(customerName);
         setName(txtName);
-        setEmailId();
+        setEmailID();
         setRepeatEMail();
         setPassword(txtPassword);
         setRepeatPassword(txtRepeatPassword);
@@ -57,16 +57,16 @@ public class CreateAccountPage extends BasePage {
         signUp.click();
     }
 
-    public void setName(String txtFirstName) {
-        setText(customerName, txtFirstName);
+    public void setName(String txtFullName) {
+        setText(customerName, txtFullName);
     }
 
-    public void setEmailId() {
-        setText(emailId, emailAddress);
+    public void setEmailID() {
+        setText(emailId, randomEmailAddress);
     }
 
     public void setRepeatEMail() {
-        setText(repeatEMail, emailAddress);
+        setText(repeatEMail, randomEmailAddress);
     }
 
     public void setPassword(String txtPassword) {

@@ -32,14 +32,14 @@ public class CommonSteps extends Utils {
     }
 
     @Given("user is on TACX site")
-    public void userIsOnTacxSite() throws IOException {
+    public void openSite() throws IOException {
         webDriver.getWebDriver().get(getProperties("clienturl"));
     }
 
-    @Then("{string} page is opened")
-    public void ValidatePageIsOpened(String pageTitle) throws InterruptedException, IOException {
+    @Then("User is on {string} page")
+    public void verifyPageTitle(String pageTitle) throws InterruptedException, IOException {
         HomePage homePage = new HomePage(webDriver.getWebDriver());
-        homePage.waitHomePageTitleToBeVisible();
+        homePage.waitTitleToBeVisible();
         Thread.sleep(4000);
         Assert.assertEquals("Page Title is not equals", pageTitle, homePage.getPageTitle());
     }

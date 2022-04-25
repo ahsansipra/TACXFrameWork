@@ -1,4 +1,4 @@
-package backend.httpRequestsContext;
+package backend.httpRequestsBeans;
 
 
 import io.restassured.http.Method;
@@ -16,12 +16,12 @@ import backend.restclient.HttpRestClient;
  */
 
 @Getter
-public class GetEmployeesContext {
-    private static final Logger logger = LoggerFactory.getLogger(GetEmployeesContext.class.getName());
+public class GetEmployeesDataBean {
+    private static final Logger logger = LoggerFactory.getLogger(GetEmployeesDataBean.class.getName());
     private HttpRestClient httpRestClient;
     private ListOfEmployee listOfEmployee;
 
-    public GetEmployeesContext(HttpRestClient httpRestClient) {
+    public GetEmployeesDataBean(HttpRestClient httpRestClient) {
         this.httpRestClient = httpRestClient;
     }
 
@@ -38,7 +38,7 @@ public class GetEmployeesContext {
 
     public Response getEmployeeDetailByID(int id) {
         httpRestClient.addHeader("content-type", "application/json;charset=utf-8");
-        Response response = httpRestClient.sendHttpRequest(Method.GET, Endpoint.GET_EMPLOYEE_ID, id);
+        Response response = httpRestClient.sendHttpRequest(Method.GET, Endpoint.GET_EMPLOYEE_BY_ID, id);
         if (response.getStatusCode() != 429) {
             return response;
         } else {

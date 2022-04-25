@@ -39,7 +39,7 @@ public class HomePage extends BasePage {
         signOut.click();
     }
 
-    public void waitHomePageTitleToBeVisible() {
+    public void waitTitleToBeVisible() {
         webDriver.switchTo().parentFrame();
         waitElementToBeVisible(pageTitle);
     }

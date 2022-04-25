@@ -20,7 +20,7 @@ public class LoginSteps {
     public void userEnterEmailId(String emailId) throws IOException, InterruptedException {
         LoginPage loginPage = new LoginPage(webDriverManager.getWebDriver());
         loginPage.clickSignInWithGarmin();
-        loginPage.setEmailId(emailId);
+        loginPage.setEmailID(emailId);
     }
 
     @And("User enter password {string}")
@@ -45,7 +45,7 @@ public class LoginSteps {
     public void userLogsInToTheSystem(String emailId, String password) throws IOException, InterruptedException {
         LoginPage loginPage = new LoginPage(webDriverManager.getWebDriver());
         loginPage.clickSignInWithGarmin();
-        loginPage.setEmailId(emailId);
+        loginPage.setEmailID(emailId);
         loginPage.setPassword(password);
         loginPage.clickLogin();
         HomePage homePage = new HomePage(webDriverManager.getWebDriver());

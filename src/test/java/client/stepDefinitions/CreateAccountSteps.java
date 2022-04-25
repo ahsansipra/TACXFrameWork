@@ -16,22 +16,22 @@ public class CreateAccountSteps {
         this.webDriver = webDriver;
     }
 
-    @When("user click on the create account button")
-    public void userClickOnCreateAccountButton() throws IOException {
+    @When("click on the create account button")
+    public void clickCreateAccountButton() throws IOException {
         LoginPage loginPage = new LoginPage(webDriver.getWebDriver());
         loginPage.clickSignInWithGarmin();
         loginPage.waitCreateAccountToBeVisible();
         loginPage.clickCreateAccount();
     }
 
-    @And("user submits all fields with correct data {string} {string} {string}")
-    public void userSubmitsAllFieldsWithCorrectData(String name, String password, String repeatPassword) throws IOException {
+    @And("user submits all fields with data {string} {string} {string}")
+    public void submitFormData(String name, String password, String repeatPassword) throws IOException {
         CreateAccountPage createAccountPage = new CreateAccountPage(webDriver.getWebDriver());
         createAccountPage.fillCreateAccountForm(name, password, repeatPassword);
     }
 
-    @And("Current page url contains {string}")
-    public void validateCurrentPageUrlContains(String expectedValue) throws IOException {
+    @And("Verify current page url contains {string}")
+    public void verifyCurrentPageUrl(String expectedValue) throws IOException {
         Assert.assertTrue("URL does not contain: " + expectedValue,
                 webDriver.getWebDriver().getCurrentUrl().contains(expectedValue));
     }

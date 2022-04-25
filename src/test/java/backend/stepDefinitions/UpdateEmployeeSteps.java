@@ -1,6 +1,6 @@
 package backend.stepDefinitions;
 
-import backend.httpRequestsContext.UpdateEmployeeContext;
+import backend.httpRequestsBeans.UpdateEmployeeDataBean;
 import backend.restclient.HttpRestClient;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,23 +11,23 @@ import org.junit.Assert;
 
 public class UpdateEmployeeSteps {
 
-    private UpdateEmployeeContext updateEmployeeContext;
+    private UpdateEmployeeDataBean updateEmployeeBean;
     private HttpRestClient httpRestClient;
     Response response;
 
-    public UpdateEmployeeSteps(HttpRestClient httpRestClient, UpdateEmployeeContext updateEmployeeContext) {
+    public UpdateEmployeeSteps(HttpRestClient httpRestClient, UpdateEmployeeDataBean updateEmployeeContext) {
         this.httpRestClient = httpRestClient;
-        this.updateEmployeeContext = updateEmployeeContext;
+        this.updateEmployeeBean = updateEmployeeContext;
     }
 
     @Given("User has an initial employee data for update employee {int} {string} {int} {int}")
     public void initialDataForUpdateEmployee(Integer id, String name, Integer salary, Integer age) {
-        updateEmployeeContext.updateEmployeeData(id, name, salary, age);
+        updateEmployeeBean.updateEmployeeData(id, name, salary, age);
     }
 
     @When("client perform the Put function of update Employees api with {int}")
-    public void clientPerformPutFunctionOfUpdateEmployeesApi(Integer id) {
-        response = updateEmployeeContext.callUpdateEmployee(id);
+    public void updateEmployeeDetailCall(Integer id) {
+        response = updateEmployeeBean.callUpdateEmployee(id);
     }
 
     @Then("verify record is updated and success message is shown {string}")

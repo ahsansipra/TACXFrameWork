@@ -1,4 +1,4 @@
-package backend.httpRequestsContext;
+package backend.httpRequestsBeans;
 
 import io.restassured.http.Method;
 import io.restassured.response.Response;
@@ -19,13 +19,13 @@ import backend.restclient.HttpRestClient;
 
 @Getter
 @Setter
-public class CreateEmployeeContext {
-    private Logger logger = LoggerFactory.getLogger(CreateEmployeeContext.class.getName());
+public class AddEmployeeDataBean {
+    private Logger logger = LoggerFactory.getLogger(AddEmployeeDataBean.class.getName());
     private HttpRestClient httpRestClient;
     private PostEmployeeRequest employeeRequest = new PostEmployeeRequest();
     public PostEmployeeResponse postEmployeeResponse;
 
-    public CreateEmployeeContext(HttpRestClient httpRestClient) {
+    public AddEmployeeDataBean(HttpRestClient httpRestClient) {
         this.httpRestClient = httpRestClient;
     }
 

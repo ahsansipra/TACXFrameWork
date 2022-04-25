@@ -1,6 +1,6 @@
 package backend.stepDefinitions;
 
-import backend.httpRequestsContext.CreateEmployeeContext;
+import backend.httpRequestsBeans.AddEmployeeDataBean;
 import backend.modelClasses.PostEmployeeResponse;
 import backend.restclient.HttpRestClient;
 import io.cucumber.java.en.Given;
@@ -11,24 +11,24 @@ import org.junit.Assert;
 
 public class CreateEmployeeSteps {
 
-    private CreateEmployeeContext createEmployeeContext;
+    private AddEmployeeDataBean createEmployeeBean;
     private HttpRestClient httpRestClient;
     PostEmployeeResponse postEmployeeResponse;
 
-    public CreateEmployeeSteps(CreateEmployeeContext createEmployeeContext, HttpRestClient httpRestClient) {
-        this.createEmployeeContext = createEmployeeContext;
+    public CreateEmployeeSteps(AddEmployeeDataBean createEmployeeContext, HttpRestClient httpRestClient) {
+        this.createEmployeeBean = createEmployeeContext;
         this.httpRestClient = httpRestClient;
     }
 
-    @Given("User has an initial employee data {string} {int} {int}")
-    public void initialEmployeeData(String name, Integer salary, Integer age) {
-        createEmployeeContext.setEmployeeData(name, salary, age);
+    @Given("User sets required employee data {string} {int} {int}")
+    public void fillEmployeeData(String name, Integer salary, Integer age) {
+        createEmployeeBean.setEmployeeData(name, salary, age);
     }
 
-    @When("client perform the Post function of create Employees api")
+    @When("client perform the Post operation to post Employees api")
     public void createEmployeePostRequest() {
-        createEmployeeContext.createEmployeePostCall();
-        postEmployeeResponse = createEmployeeContext.postEmployeeResponse;
+        createEmployeeBean.createEmployeePostCall();
+        postEmployeeResponse = createEmployeeBean.postEmployeeResponse;
     }
 
     @Then("Create Api status is {string} and name is {string} and salary is {int} and age is {int}")

@@ -13,10 +13,10 @@ import java.util.List;
 public class WorkoutsPage extends BasePage {
 
     @FindBy(xpath = "//div[@id = 'workouts-cards']/div")
-    private List<WebElement> workOuts;
+    private List<WebElement> workOutsList;
 
-    @FindBy(id = "workouts-cards")
-    private WebElement workoutCards;
+  //  @FindBy(id = "workouts-cards")
+  //  private WebElement workoutCards;
 
     public WorkoutsPage(WebDriver webDriver) {
         super(webDriver);
@@ -28,6 +28,6 @@ public class WorkoutsPage extends BasePage {
         String active = "notificationType == 'uploadWorkout'";
         WebElement state = webDriver.findElement(By.xpath("//div[@ng-if=\"" + active + "\"]"));
         waitElementToBeInvisible(state);
-        return Utils.isListContainsValue(workOuts, title);
+        return Utils.isListContainsValue(workOutsList, title);
     }
 }
